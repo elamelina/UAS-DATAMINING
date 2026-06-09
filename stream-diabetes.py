@@ -328,7 +328,7 @@ with col_m1:
     st.markdown("""
     <div class="metric-card">
         <div class="metric-title">Algoritma</div>
-        <div class="metric-value">SVM</div>
+        <div class="metric-value">Support Vector Machine (SVM)</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -476,59 +476,87 @@ with st.expander("📚 Literatur & Referensi Pustaka", expanded=False):
     """, unsafe_allow_html=True)
 
 # ==========================
-# FORM INPUT (WRAPPED IN CARD)
+# FORM INPUT (UPGRADED AESTHETIC STYLE)
 # ==========================
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
-st.subheader("📋 Input Data Pasien")
+st.markdown("""
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <span style="font-size: 24px;">📋</span>
+        <h3 style="margin: 0; color: #1e3a8a; font-weight: 700;">Form Data Klinis Pasien</h3>
+    </div>
+    <p style="color: #64748b; font-size: 14px; margin-top: -10px; margin-bottom: 25px;">
+        Silakan masukkan data pemeriksaan medis di bawah ini dengan akurat untuk mendapatkan hasil prediksi dari sistem.
+    </p>
+""", unsafe_allow_html=True)
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2, gap="large")
 
 with col1:
+    with st.container(border=True):
+        st.markdown("<b style='color:#1e3a8a;'>🤰 Faktor Kehamilan & Sirkulasi</b>", unsafe_allow_html=True)
+        st.write("")
+        Pregnancies = st.number_input(
+            "Jumlah Kehamilan (Pregnancies)",
+            min_value=0.0,
+            step=1.0,
+            help="Total berapa kali pasien telah hamil."
+        )
 
-    Pregnancies = st.number_input(
-        "Jumlah Kehamilan (Pregnancies)",
-        min_value=0.0
-    )
+        BloodPressure = st.number_input(
+            "Tekanan Darah Diastolik (Blood Pressure) — mm Hg",
+            min_value=0.0,
+            step=1.0,
+            help="Tekanan darah saat jantung beristirahat di antara detakan."
+        )
 
-    BloodPressure = st.number_input(
-        "Tekanan Darah",
-        min_value=0.0
-    )
+        Insulin = st.number_input(
+            "Kadar Insulin Serum 2 Jam (Insulin) — mu U/ml",
+            min_value=0.0,
+            step=1.0,
+            help="Kadar hormon insulin serum dalam darah setelah puasa/tes."
+        )
 
-    Insulin = st.number_input(
-        "Insulin",
-        min_value=0.0
-    )
-
-    DiabetesPedigreeFunction = st.number_input(
-        "Diabetes Pedigree Function",
-        min_value=0.0,
-        format="%.3f"
-    )
+        DiabetesPedigreeFunction = st.number_input(
+            "Diabetes Pedigree Function (Skor Genetik)",
+            min_value=0.0,
+            step=0.001,
+            format="%.3f",
+            help="Skor fungsi yang memetakan riwayat diabetes dari garis keturunan keluarga."
+        )
 
 with col2:
+    with st.container(border=True):
+        st.markdown("<b style='color:#2563eb;'>🩺 Metabolisme & Komposisi Tubuh</b>", unsafe_allow_html=True)
+        st.write("")
+        Glucose = st.number_input(
+            "Kadar Glukosa Plasma (Glucose) — mg/dL",
+            min_value=0.0,
+            step=1.0,
+            help="Konsentrasi glukosa dalam plasma darah dari tes toleransi oral."
+        )
 
-    Glucose = st.number_input(
-        "Glucose",
-        min_value=0.0
-    )
+        SkinThickness = st.number_input(
+            "Ketebalan Lipatan Kulit Trisep (Skin Thickness) — mm",
+            min_value=0.0,
+            step=1.0,
+            help="Ketebalan jaringan lemak subkutan di lengan belakang."
+        )
 
-    SkinThickness = st.number_input(
-        "Skin Thickness",
-        min_value=0.0
-    )
+        BMI = st.number_input(
+            "Indeks Massa Tubuh (BMI) — kg/m²",
+            min_value=0.0,
+            step=0.1,
+            format="%.1f",
+            help="Rasio berat badan berbanding kuadrat tinggi badan (Indeks Massa Tubuh)."
+        )
 
-    BMI = st.number_input(
-        "BMI",
-        min_value=0.0,
-        format="%.1f"
-    )
-
-    Age = st.number_input(
-        "Age",
-        min_value=0.0
-    )
+        Age = st.number_input(
+            "Usia Pasien (Age) — Tahun",
+            min_value=0.0,
+            step=1.0,
+            help="Usia pasien saat ini dalam satuan tahun."
+        )
 
 st.markdown('</div>', unsafe_allow_html=True)
 
