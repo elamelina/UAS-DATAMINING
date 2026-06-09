@@ -49,5 +49,5 @@ Ikuti langkah-langkah berikut untuk menjalankan aplikasi ini di komputer lokal A
 
 ### 1. Clone Repositori
 ```bash
-git clone [[https://github.com/username-anda/nama-repo-anda.git](https://github.com/username-anda/nama-repo-anda.git](https://github.com/elamelina/UAS-DATAMINING.git))
+git clone (https://github.com/elamelina/UAS-DATAMINING.git)
 cd nama-repo-anda
